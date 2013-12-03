@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=7,IE=9">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title></title>
+
+    <link rel="stylesheet" href="http://js.arcgis.com/3.7/js/esri/css/esri.css">
+    <link rel="stylesheet" href="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <link href="http://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet">
+	<script src="http://js.arcgis.com/3.7/"></script>
+	<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+	<script src="http://d3js.org/d3.v3.min.js" charset="utf-8"></script>
+	<script src="http://netdna.bootstrapcdn.com/bootstrap/3.0.2/js/bootstrap.min.js"></script>
+	
+<!-- data api -->
+	<script type="text/javascript" src="neighborInfo.js"></script>
+	<script type="text/javascript" src="relatedPairs.js"></script>
+	<script type="text/javascript" src="busStop.js"></script>
+	<script type="text/javascript" src="helper.js"></script>
+	<script type="text/javascript" src="ridership.js"></script>
+	<script type="text/javascript" src="NeighborPair.js"></script>
+	<script type="text/javascript" src="NeighborPairDict.js"></script>
+  </head>
+  <body>
+  	<div id="mapDiv">
+  	</div>
+  	<svg id="featureSVG">
+	</svg>
+	
+	<!-- control panel -->
+	<div id="controlPanel" class="transition" style="display:none;">
+		<div id="neighbors" class="">
+			<div id="n1"></div>
+			<span class="fa fa-arrows-h fa-2"></span>
+			<div id="n2">
+				<select class="form-control">
+
+				</select>
+			</div>
+		</div><!-- end of neighbors -->
+
+		<div id="routes">
+			<table id="before">
+				<th>Type</th>
+				<th>Number and Ridership</th>
+				<tr id="currentR">
+					<td class="tLabel">
+						<span class="fa fa-calendar fa-2"></span>
+						<p>Current Routes</p>
+					</td>
+					<td class="tContent">
+
+					</td>
+				</tr>
+
+				<tr id="deleteR">
+					<td class="tLabel">
+						<span class="fa fa-times fa-2"></span>
+						<p>Deleted Routes</p>
+					</td>
+					<td class="tContent">
+						
+					</td>
+				</tr>
+
+				<tr id="reducedR">
+					<td class="tLabel">
+						<span class="fa fa-arrow-down fa-2"></span>
+						<p>Reduced Routes</p>
+					</td>
+					<td class="tContent">
+						
+					</td>
+				</tr>
+			</table>
+
+			<table id="after" style="display:none;">
+				<th>Type</th>
+				<th>Number and Ridership</th>
+				<tr id="remainR">
+					<td class="tLabel">
+						<span class="fa fa-check-circle fa-2"></span>
+						<p>Remain Routes</p>
+					</td>
+					<td class="tContent">
+
+					</td>
+				</tr>
+			</table>
+		</div><!-- end of routes -->
+
+		<div id="widgets" style="display:none;">
+			<div>
+				<label>% of person still using bus after service modification</label>
+				<input type="text" id="stillBus" class="form-control" />
+			</div>
+
+			<div>
+				<label>% of bus service reduction</label>
+				<input type="text" id="reducePer" class="form-control" />
+			</div>
+
+			<div style="text-align:center;">
+				<button class="btn btn-warning" id="updateBtn">Reduce & Delete</button>
+			</div>
+		</div><!-- end of widgets -->
+	</div>
+	<!-- <div id="tooltips"></div> -->
+  </body>
+	<script src="custom.js"></script>
+</html>
